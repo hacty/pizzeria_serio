@@ -1,7 +1,9 @@
 const { Router } = require("express");
 const router = Router();
 
-router.post("/login", (req, res) => {
+const db = require("../db/sqlite"); // 👈 IMPORTANTE
+
+router.post("/", (req, res) => {
   const { usuario, password } = req.body;
 
   const sql = "SELECT * FROM usuarios WHERE usuario = ? AND password = ?";
@@ -10,14 +12,14 @@ router.post("/login", (req, res) => {
     if (err) return res.send("Error");
 
     if (row) {
-      // usuario encontrado
       return res.redirect("/");
     } else {
-      return res.send("Usuario o contraseña incorrectos");
+      return res.render("login", {
+        error: "Usuario o contraseña incorrectos"
+      });
     }
   });
 });
-
 
 // Mostrar página de login
 router.get("/", (req, res) => {
