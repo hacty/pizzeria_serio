@@ -2,8 +2,12 @@
     Agregar producto
 </h1>
 
-<form action="/dashboard/agregar_producto" method="POST" class="registro-form">
-
+<form
+  action="/dashboard/agregar_producto"
+  method="POST"
+  enctype="multipart/form-data"
+  class="registro-form"
+>
     <input
       type="text"
       name="id_producto"
@@ -31,12 +35,12 @@
       required
     >
 
-    <input
-      type="text"
-      name="imagen"
-      placeholder="URL imagen"
-      required
-    >
+<input
+  type="file"
+  name="imagen"
+  accept="image/*"
+  required
+>
 
     <select name="id_categoria">
 

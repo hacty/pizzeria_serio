@@ -1,29 +1,38 @@
 const express = require("express");
+
 const session = require("express-session");
+
 const hbs = require("express-handlebars");
+
 const path = require("path");
 
 const app = express();
 
 app
+
+  // PUERTO
   .set("port", process.env.PORT || 3000)
 
-  // Archivos públicos
+  // ARCHIVOS PUBLICOS
   .use(express.static(path.join(__dirname, "../public")))
 
-  // Leer formularios
+  // LEER FORMULARIOS
   .use(express.urlencoded({ extended: true }))
 
-  // Sesiones
+  // SESIONES
   .use(
     session({
+
       secret: "dashboardfeliz",
+
       resave: false,
+
       saveUninitialized: false,
+
     })
   )
 
-  // 👇 USUARIO GLOBAL
+  // USUARIO GLOBAL
   .use((req, res, next) => {
 
     res.locals.usuario = req.session.usuario;
@@ -32,20 +41,33 @@ app
 
   })
 
-  // Carpeta views
+  // CARPETA VIEWS
   .set("views", path.join(__dirname, "../views"))
 
-  // Handlebars
+  // HANDLEBARS
   .set("view engine", ".hbs")
 
   .engine(
     ".hbs",
+
     hbs.engine({
+
       extname: ".hbs",
+
+      helpers: {
+
+        eq: function(a, b){
+
+          return a === b;
+
+        }
+
+      }
+
     })
   )
 
-  // Rutas
+  // RUTAS
   .use("/", require("../routes/routes"));
 
 module.exports = app;

@@ -47,31 +47,48 @@
     Nuestras Productos
 </h1>
 
+
+{{#each categorias}}
+
+<h2 class="categoria-titulo">
+
+    {{nombre_categoria}}
+
+</h2>
+
 <div class="contenedor-productos">
 
-    {{#each productos}}
+    {{#each ../productos}}
 
-    <div class="producto-card">
+        {{#if (eq id_categoria ../id_categoria)}}
 
-        <img src="{{imagen}}" alt="producto">
+        <div class="producto-card">
 
-        <h2>
-            {{nombre_producto}}
-        </h2>
+            <img src="{{imagen}}" alt="producto">
 
-        <p>
-            {{descripcion}}
-        </p>
+            <h2>
+                {{nombre_producto}}
+            </h2>
 
-        <h3>
-            ${{precio}}
-        </h3>
+            <p>
+                {{descripcion}}
+            </p>
 
-    </div>
+            <h3>
+                ${{precio}}
+            </h3>
+
+        </div>
+
+        {{/if}}
 
     {{/each}}
 
 </div>
+
+{{/each}}
+
+
 </div>
     </div>
 </body>

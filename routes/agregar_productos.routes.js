@@ -4,6 +4,35 @@ const router = Router();
 
 const db = require("../db/sqlite");
 
+const multer = require("multer");
+
+const path = require("path");
+
+// CONFIG IMAGENES
+
+const storage = multer.diskStorage({
+
+    destination: (req, file, cb) => {
+
+        cb(null, "public/images");
+
+    },
+
+    filename: (req, file, cb) => {
+
+        cb(
+            null,
+            Date.now() + path.extname(file.originalname)
+        );
+
+    }
+
+});
+
+const upload = multer({
+    storage
+});
+
 // =========================
 // MOSTRAR FORMULARIO
 // =========================
@@ -42,16 +71,19 @@ router.get("/", (req, res) => {
 // GUARDAR PRODUCTO
 // =========================
 
-router.post("/", (req, res) => {
+router.post("/", upload.single("imagen"), (req, res) => {
+
 
     const {
         id_producto,
         nombre_producto,
         descripcion,
         precio,
-        imagen,
         id_categoria
     } = req.body;
+
+    const imagen = "/images/" + req.file.filename;
+
 
     const sql = `
         INSERT INTO Producto (
