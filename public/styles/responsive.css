@@ -44,9 +44,8 @@
     .tablet { display: none; }
 
     .caja {
-        width: 70%;
+        width: 150%;
         margin-top: 50px;
-        margin-left: 50px;
     }
 
     h1 {

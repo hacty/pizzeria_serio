@@ -1,0 +1,19 @@
+<h1>Editar Empleado</h1>
+
+<form action="/dashboard/empleados/editar/{{empleado.id_empleado}}" method="POST">
+
+    <input type="text" name="nombre" value="{{empleado.nombre}}" placeholder="Nombre">
+
+    <input type="text" name="apellido" value="{{empleado.apellido}}" placeholder="Apellido">
+
+    <input type="text" name="cargo" value="{{empleado.cargo}}" placeholder="Cargo">
+
+    <input type="text" name="telefono" value="{{empleado.telefono}}" placeholder="Teléfono">
+
+    <input type="date" name="fecha_contratacion" value="{{empleado.fecha_contratacion}}">
+
+    <input type="password" name="password" value="{{empleado.password}}" placeholder="Password">
+
+    <button type="submit">Actualizar</button>
+
+</form>

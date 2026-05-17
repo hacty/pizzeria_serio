@@ -1,25 +1,26 @@
 
 /* LAYOUT.CSS - estructura general */
 
+
 .contenido {
-    min-height: 100vh;
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
 
-/* Caja principal */
 .caja {
+    justify-content: center;
+    margin: 50px auto;
+    max-width: 1100px;
+    padding: 25px;
     background: rgba(0, 0, 0, 0.65);
+    border-radius: 20px;
     color: white;
     text-align: center;
-    border-radius: 20px;
     backdrop-filter: blur(8px);
     box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
     border: 1px solid rgba(255,255,255,0.1);
-    padding: 25px;
-    margin: 20px auto;
 }
-
 /* HEADER */
 .header {
     display: flex;

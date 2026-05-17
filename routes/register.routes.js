@@ -6,43 +6,70 @@ const db = require("../db/sqlite");
 // REGISTRO
 router.post("/", (req, res) => {
 
-  const { id_empleado, password } = req.body;
+  if (!req.session.usuario) {
+    return res.redirect("/login");
+  }
+
+  const {
+    id_empleado,
+    nombre,
+    apellido,
+    cargo,
+    telefono,
+    fecha_contratacion,
+    password
+  } = req.body;
 
   console.log("🟢 Nuevo registro:");
-  console.log("ID:", id_empleado);
+  console.log(req.body);
 
-  // VALIDAR CAMPOS
-  if (!id_empleado || !password) {
+  if (
+    !id_empleado ||
+    !nombre ||
+    !apellido ||
+    !cargo ||
+    !telefono ||
+    !fecha_contratacion ||
+    !password
+  ) {
     return res.send("Completa todos los campos");
   }
 
-  // INSERTAR
   const sql = `
     INSERT INTO Empleado 
-    (id_empleado, password) 
-    VALUES (?, ?)
+    (id_empleado, nombre, apellido, cargo, telefono, fecha_contratacion, password)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
   `;
 
-  db.run(sql, [id_empleado, password], function (err) {
+  db.run(
+    sql,
+    [
+      id_empleado,
+      nombre,
+      apellido,
+      cargo,
+      telefono,
+      fecha_contratacion,
+      password
+    ],
+    function (err) {
 
-    if (err) {
+      if (err) {
+        console.log(err);
 
-      console.log(err);
+        if (err.message.includes("UNIQUE")) {
+          return res.send("Ese empleado ya existe");
+        }
 
-      // ID REPETIDO
-      if (err.message.includes("UNIQUE")) {
-        return res.send("Ese empleado ya existe");
+        return res.send("Error creando usuario");
       }
 
-      return res.send("Error creando usuario");
+      res.send("Empleado creado ✔");
+
     }
-
-    res.send("Usuario creado ✔");
-
-  });
+  );
 
 });
-
 // MOSTRAR REGISTER
 router.get("/", (req, res) => {
   res.render("register");

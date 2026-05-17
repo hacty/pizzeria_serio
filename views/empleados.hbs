@@ -1,0 +1,59 @@
+<h1 class="titulo">
+    Empleados
+</h1>
+
+{{#if usuario}}
+
+<a href="/dashboard/empleados/register" class="btn-agregar">
+    Añadir empleado
+</a>
+
+{{/if}}
+
+<div class="contenedor-productos">
+
+    {{#each empleados}}
+
+    <div class="producto-card">
+
+        <h2>
+            {{nombre}} {{apellido}}
+        </h2>
+
+        <p>
+            <strong>ID:</strong> {{id_empleado}}
+        </p>
+
+        <p>
+            <strong>Cargo:</strong> {{cargo}}
+        </p>
+
+        <p>
+            <strong>Teléfono:</strong> {{telefono}}
+        </p>
+
+        <p>
+            <strong>Fecha contratación:</strong> {{fecha_contratacion}}
+        </p>
+
+        <p>
+            <strong>Password:</strong> {{password}}
+        </p>
+
+        <br>
+
+        <a href="/dashboard/empleados/editar/{{id_empleado}}">
+            Editar
+        </a>
+
+        <br><br>
+
+        <a href="/dashboard/empleados/eliminar/{{id_empleado}}">
+            Eliminar
+        </a>
+
+    </div>
+
+    {{/each}}
+
+</div>
