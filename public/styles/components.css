@@ -1,0 +1,112 @@
+
+/* COMPONENTS.CSS - UI components */
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 200px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.slides {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* REGISTRO */
+.registro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    background: rgba(0,0,0,0.25);
+}
+
+.registro-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+}
+
+.registro-form input {
+    width: 320px;
+    padding: 15px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.registro-form button {
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: #4da6ff;
+    color: white;
+    cursor: pointer;
+}
+
+/* PRODUCTOS */
+.contenedor-productos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.producto-card {
+    width: 250px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 15px;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.producto-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.producto-card h3 {
+    color: #4da6ff;
+}

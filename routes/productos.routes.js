@@ -37,6 +37,11 @@ const upload = multer({
 
 router.get("/", (req, res) => {
 
+        // PROTEGER
+    if(!req.session.usuario){
+        return res.redirect("/login");
+    }
+
     db.all(
         `
         SELECT

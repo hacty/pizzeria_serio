@@ -1,0 +1,55 @@
+
+/* RESPONSIVE.CSS - media queries */
+
+.resolucion {
+    width: 99%;
+    text-align: center;
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+    .desktop { display: none; }
+    .tablet { display: none; }
+
+    .caja {
+        width: 95%;
+    }
+
+    .carousel {
+        height: 160px;
+    }
+
+    .registro-form input {
+        width: 90%;
+    }
+}
+
+/* TABLET */
+@media (min-width: 768px) and (max-width: 990px) {
+    .desktop { display: none; }
+    .movil { display: none; }
+
+    .caja {
+        width: 85%;
+    }
+
+    .carousel {
+        height: 200px;
+    }
+}
+
+/* DESKTOP */
+@media (min-width: 991px) {
+    .movil { display: none; }
+    .tablet { display: none; }
+
+    .caja {
+        width: 70%;
+        margin-top: 50px;
+        margin-left: 50px;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+}
