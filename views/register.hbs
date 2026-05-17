@@ -1,8 +1,29 @@
-<h1>Registro</h1>
+<div class="registro-container">
 
-<form action="/register" method="POST">
-  <input type="text" name="usuario" placeholder="Usuario" required>
-  <input type="password" name="password" placeholder="Contraseña" required>
+  
 
-  <button type="submit">Registrarse</button>
-</form>
+    <form action="/dashboard/register" method="POST" class="registro-form">
+
+    <h1>Registrarse</h1>
+
+        <input type="text" name="id_empleado" placeholder="ID Empleado">
+
+        <input type="text" name="nombre" placeholder="Nombre">
+
+        <input type="text" name="apellido" placeholder="Apellido">
+
+        <input type="text" name="cargo" placeholder="Cargo">
+
+        <input type="text" name="telefono" placeholder="Teléfono">
+
+        <input type="date" name="fecha_contratacion">
+
+        <input type="password" name="password" placeholder="Contraseña">
+
+        <button type="submit">
+            Registrarse
+        </button>
+
+    </form>
+
+</div>

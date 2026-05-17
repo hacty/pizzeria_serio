@@ -5,7 +5,6 @@ const path = require("path");
 
 const app = express();
 
-
 app
   .set("port", process.env.PORT || 3000)
 
@@ -23,6 +22,15 @@ app
       saveUninitialized: false,
     })
   )
+
+  // 👇 USUARIO GLOBAL
+  .use((req, res, next) => {
+
+    res.locals.usuario = req.session.usuario;
+
+    next();
+
+  })
 
   // Carpeta views
   .set("views", path.join(__dirname, "../views"))

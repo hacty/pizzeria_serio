@@ -1,0 +1,39 @@
+<h1>
+    Categorías
+</h1>
+
+<form action="/dashboard/categorias" method="POST" class="registro-form">
+
+    <input
+      type="text"
+      name="id_categoria"
+      placeholder="ID Categoría"
+      required
+    >
+
+    <input
+      type="text"
+      name="nombre_categoria"
+      placeholder="Nombre categoría"
+      required
+    >
+
+    <button type="submit">
+        Crear categoría
+    </button>
+
+</form>
+
+<hr>
+
+{{#each categorias}}
+
+<div class="producto-card">
+
+    <h2>
+        {{nombre_categoria}}
+    </h2>
+
+</div>
+
+{{/each}}

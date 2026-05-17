@@ -206,6 +206,106 @@ h1{
 
 .prev { left: 10px; }
 .next { right: 10px; }
+/*
+.registro-container{
+
+}
+*/
+/* CONTENEDOR */
+.registro-container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    background: rgba(0,0,0,0.25);
+
+}
+
+/* FORMULARIO */
+.registro-form{
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    align-items: center;
+}
+
+/* INPUTS */
+.registro-form input{
+
+    width: 320px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    border: 2px solid transparent;
+
+    background: rgba(255,255,255,0.15);
+
+    color: white;
+
+    font-size: 16px;
+
+    transition: 0.3s;
+
+    outline: none;
+}
+
+/* PLACEHOLDER */
+.registro-form input::placeholder{
+    color: rgba(255,255,255,0.7);
+}
+
+/* EFECTO AL PASAR EL MOUSE */
+.registro-form input:hover{
+
+    border-color: #4da6ff;
+
+    box-shadow: 0px 0px 10px rgba(77,166,255,0.6);
+
+}
+
+/* EFECTO AL ESCRIBIR */
+.registro-form input:focus{
+
+    border-color: #4da6ff;
+
+    box-shadow: 0px 0px 15px rgba(77,166,255,0.8);
+
+}
+
+/* BOTON */
+.registro-form button{
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #4da6ff;
+
+    color: white;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.registro-form button:hover{
+
+    background: #1f8cff;
+
+    transform: scale(1.03);
+
+}
 
 .menu a:hover {
   color: #ffcc00;
@@ -216,5 +316,70 @@ h1{
     .movil {
         display: none;
     }
+
+    .contenedor-productos{
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    justify-content: center;
+
+    margin-top: 30px;
+
+}
+
+.producto-card{
+
+    width: 250px;
+
+    background: rgba(0,0,0,0.6);
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    color: white;
+
+    text-align: center;
+
+    padding-bottom: 20px;
+
+}
+
+.producto-card img{
+
+    width: 100%;
+
+    height: 180px;
+
+    object-fit: cover;
+
+}
+
+.producto-card h2{
+
+    margin-top: 15px;
+
+}
+
+.producto-card p{
+
+    padding: 0px 15px;
+
+}
+
+.producto-card h3{
+
+    color: #4da6ff;
+
+}
+
+.btn-agregar{
+
+    background: #4da6ff;
+}
 }
 

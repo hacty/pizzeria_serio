@@ -22,7 +22,19 @@
     <a href="/">Inicio</a>
     <a href="#">Servicios</a>
     <a href="#">Contacto</a>
-    <a href="/login">Inicia sesión</a>
+{{#if usuario}}
+
+  <a href="/dashboard">
+    {{usuario}}
+  </a>
+
+{{else}}
+
+  <a href="/login">
+    Inicia sesión
+  </a>
+
+{{/if}}
   </nav>
 </header>
 

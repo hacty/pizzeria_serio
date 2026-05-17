@@ -1,0 +1,66 @@
+<h1 class="titulo">
+    Productos
+</h1>
+
+{{#if usuario}}
+
+<a href="/dashboard/agregar_producto" class="btn-agregar">
+    Añadir producto
+</a>
+
+{{/if}}
+
+<p>
+    Categoría:
+    {{nombre_categoria}}
+</p>
+
+<div class="contenedor-productos">
+
+    {{#each productos}}
+
+    <div class="producto-card">
+
+        <img src="{{imagen}}" alt="producto">
+
+        <h2>
+            {{nombre_producto}}
+        </h2>
+
+        <p>
+            {{descripcion}}
+        </p>
+
+        <h3>
+            ${{precio}}
+        </h3>
+
+
+    {{#if agotado}}
+
+    <h2>
+        AGOTADO
+    </h2>
+
+    <a href="/dashboard/productos/activar/{{id_producto}}">
+        Activar
+    </a>
+
+    {{else}}
+
+    <a href="/dashboard/productos/agotado/{{id_producto}}">
+        Agotar
+    </a>
+
+    {{/if}}
+
+    <br><br>
+
+    <a href="/dashboard/productos/eliminar/{{id_producto}}">
+        Eliminar
+    </a>
+    </div>
+
+    {{/each}}
+
+</div>

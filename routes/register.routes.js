@@ -1,28 +1,51 @@
 const { Router } = require("express");
 const router = Router();
 
-const db = require("../db/sqlite"); // 👈 IMPORTANTE
+const db = require("../db/sqlite");
 
+// REGISTRO
 router.post("/", (req, res) => {
-  const { usuario, password } = req.body;
+
+  const { id_empleado, password } = req.body;
 
   console.log("🟢 Nuevo registro:");
-  console.log("Usuario:", usuario);
-  console.log("Password:", password);
+  console.log("ID:", id_empleado);
 
-  const sql = "INSERT INTO usuarios (usuario, password) VALUES (?, ?)";
+  // VALIDAR CAMPOS
+  if (!id_empleado || !password) {
+    return res.send("Completa todos los campos");
+  }
 
-  db.run(sql, [usuario, password], function (err) {
+  // INSERTAR
+  const sql = `
+    INSERT INTO Empleado 
+    (id_empleado, password) 
+    VALUES (?, ?)
+  `;
+
+  db.run(sql, [id_empleado, password], function (err) {
+
     if (err) {
+
+      console.log(err);
+
+      // ID REPETIDO
+      if (err.message.includes("UNIQUE")) {
+        return res.send("Ese empleado ya existe");
+      }
+
       return res.send("Error creando usuario");
     }
 
     res.send("Usuario creado ✔");
+
   });
-});
-// Mostrar página de login
-router.get("/", (req, res) => {
-  res.render("register"); // o "sesion" si tu vista se llama así
+
 });
 
-module.exports = router; // 👈 OBLIGATORIO
+// MOSTRAR REGISTER
+router.get("/", (req, res) => {
+  res.render("register");
+});
+
+module.exports = router;

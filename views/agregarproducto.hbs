@@ -1,0 +1,57 @@
+<h1>
+    Agregar producto
+</h1>
+
+<form action="/dashboard/agregar_producto" method="POST" class="registro-form">
+
+    <input
+      type="text"
+      name="id_producto"
+      placeholder="ID Producto"
+      required
+    >
+
+    <input
+      type="text"
+      name="nombre_producto"
+      placeholder="Nombre producto"
+      required
+    >
+
+    <textarea
+      name="descripcion"
+      placeholder="Descripción"
+    ></textarea>
+
+    <input
+      type="number"
+      step="0.01"
+      name="precio"
+      placeholder="Precio"
+      required
+    >
+
+    <input
+      type="text"
+      name="imagen"
+      placeholder="URL imagen"
+      required
+    >
+
+    <select name="id_categoria">
+
+    {{#each categorias}}
+
+        <option value="{{id_categoria}}">
+            {{nombre_categoria}}
+        </option>
+
+    {{/each}}
+
+</select>
+
+    <button type="submit">
+        Crear producto
+    </button>
+
+</form>
